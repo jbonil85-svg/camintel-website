@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075fc5">
+  <meta name="description" content="CAMINTEL provides fence installation and repair, security camera installation, and smart gate opener solutions in Augusta, Evans, Martinez, Grovetown, North Augusta, Aiken, and surrounding areas. Request a free estimate.">
+  <title>Fence, Security Camera &amp; Smart Gate Services | CAMINTEL Augusta</title>
+  <style>
+    :root {
+      --blue: #0969d7;
+      --blue-dark: #064b9d;
+      --blue-soft: #eaf3ff;
+      --navy: #10243e;
+      --ink: #182433;
+      --muted: #5d6b7c;
+      --line: #dce5ef;
+      --surface: #f5f8fc;
+      --white: #ffffff;
+      --success: #19734b;
+      --radius: 18px;
+      --shadow: 0 18px 50px rgba(23, 52, 87, .11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a, input, select, textarea { outline-offset: 3px; }
+    :focus-visible { outline: 3px solid rgba(9, 105, 215, .4); }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 96px 0; }
+    .section-soft { background: var(--surface); }
+    .section-blue { color: var(--white); background: linear-gradient(135deg, #075bbb, #063d7d); }
+    .label { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .label::before { width: 26px; height: 3px; border-radius: 3px; background: currentColor; content: ""; }
+    .section-blue .label { color: #9fd0ff; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 720px; margin-bottom: 22px; color: var(--navy); font-size: clamp(2.9rem, 6vw, 5.6rem); line-height: .98; letter-spacing: -.055em; }
+    h2 { margin: 12px 0 18px; color: var(--navy); font-size: clamp(2.15rem, 4vw, 3.6rem); line-height: 1.08; letter-spacing: -.038em; }
+    h3 { color: var(--navy); line-height: 1.25; }
+    .section-blue h2, .section-blue h3 { color: var(--white); }
+    .lead { max-width: 760px; color: var(--muted); font-size: 1.08rem; }
+    .section-blue .lead { color: #d8eaff; }
+    .section-heading { max-width: 790px; margin-bottom: 46px; }
+    .section-heading.center { margin-inline: auto; text-align: center; }
+    .section-heading.center .label { justify-content: center; }
+
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 9px; padding: 0 21px; border: 2px solid var(--blue); border-radius: 10px; color: var(--white); background: var(--blue); font-size: .88rem; font-weight: 800; cursor: pointer; transition: background .2s, border-color .2s, transform .2s, box-shadow .2s; }
+    .button:hover { border-color: var(--blue-dark); background: var(--blue-dark); box-shadow: 0 10px 26px rgba(9, 105, 215, .2); transform: translateY(-2px); }
+    .button-secondary { color: var(--blue-dark); background: var(--white); }
+    .button-secondary:hover { color: var(--white); }
+    .button-light { border-color: var(--white); color: var(--blue-dark); background: var(--white); }
+    .button-light:hover { border-color: #d7eaff; color: var(--blue-dark); background: #d7eaff; }
+    .text-link { display: inline-flex; align-items: center; gap: 7px; color: var(--blue); font-size: .87rem; font-weight: 800; }
+    .text-link:hover { color: var(--blue-dark); }
+
+    .utility { color: #d8e8fb; background: #092746; font-size: .76rem; }
+    .utility-inner { min-height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .utility a:hover { color: var(--white); text-decoration: underline; }
+    .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, .96); backdrop-filter: blur(14px); }
+    .nav { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: flex; min-width: 220px; align-items: center; gap: 12px; }
+    .brand-logo { width: 214px; height: 68px; object-fit: cover; object-position: center 50%; border-radius: 8px; background: var(--white); }
+    .brand-copy { display: none; }
+    .brand-copy strong { display: block; color: var(--navy); font-size: 1.17rem; letter-spacing: .04em; }
+    .brand-copy small { display: block; margin-top: 2px; color: var(--blue); font-size: .58rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 23px; font-size: .82rem; font-weight: 700; }
+    .nav-links > a:not(.button) { position: relative; padding: 30px 0; }
+    .nav-links > a:not(.button)::after { position: absolute; right: 0; bottom: 21px; left: 0; height: 2px; border-radius: 2px; background: var(--blue); content: ""; transform: scaleX(0); transition: transform .2s; }
+    .nav-links > a:hover::after { transform: scaleX(1); }
+    .menu-button { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 9px; color: var(--navy); background: var(--white); font-size: 1.35rem; cursor: pointer; }
+    .language-switch { display: flex; flex: 0 0 auto; align-items: center; padding: 3px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+    .language-switch button { min-width: 38px; height: 32px; padding: 0 8px; border: 0; border-radius: 6px; color: #617287; background: transparent; font-size: .69rem; font-weight: 850; cursor: pointer; }
+    .language-switch button:hover { color: var(--blue-dark); }
+    .language-switch button.active { color: var(--white); background: var(--blue); }
+
+    .hero { position: relative; min-height: calc(100vh - 120px); overflow: hidden; display: flex; align-items: center; padding: 100px 0 120px; color: var(--white); background: #071525; isolation: isolate; }
+    .hero::before { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3, 15, 29, .94) 0%, rgba(4, 20, 37, .77) 46%, rgba(4, 18, 34, .34) 78%, rgba(3, 14, 27, .5) 100%), linear-gradient(0deg, rgba(4, 16, 30, .8), transparent 45%); content: ""; }
+    .hero-grid { position: relative; width: 100%; display: block; }
+    .hero-content { max-width: 760px; }
+    .hero h1 { color: var(--white); text-shadow: 0 8px 35px rgba(0, 0, 0, .35); }
+    .hero .label { color: #57c7ff; }
+    .hero .lead { max-width: 690px; margin-bottom: 30px; color: #d8e3ef; font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; color: #c4d3e3; font-size: .78rem; font-weight: 700; }
+    .hero-proof span::before { margin-right: 7px; color: #57c7ff; content: "✓"; font-weight: 900; }
+    .hero-video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; background: #07111f; }
+
+    .trust { padding: 58px 0; border-bottom: 1px solid var(--line); text-align: center; }
+    .trust h2 { max-width: 850px; margin-inline: auto; font-size: clamp(1.8rem, 3.2vw, 2.8rem); }
+    .trust p { max-width: 930px; margin: 0 auto; color: var(--muted); }
+
+    .reviews { padding: 58px 0; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #f8fbff, #eef5fd); }
+    .reviews-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; padding: 30px 34px; border: 1px solid #d7e5f4; border-radius: 18px; background: var(--white); box-shadow: 0 12px 34px rgba(23, 52, 87, .07); }
+    .reviews-copy { display: flex; align-items: center; gap: 22px; }
+    .google-mark { width: 58px; height: 58px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: #4285f4; background: var(--white); font-size: 1.75rem; font-weight: 900; box-shadow: 0 7px 20px rgba(23, 52, 87, .08); }
+    .reviews h2 { margin: 0 0 6px; font-size: clamp(1.55rem, 3vw, 2.25rem); }
+    .reviews p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .review-stars { color: #f5ad16; letter-spacing: .09em; }
+
+    .main-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .service-card { position: relative; isolation: isolate; display: flex; min-height: 315px; overflow: hidden; flex-direction: column; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, #fff 45%, #f3f8fe); box-shadow: 0 8px 28px rgba(23, 52, 87, .06); transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .service-card::after { position: absolute; z-index: -1; top: 5px; right: -26px; width: 210px; height: 210px; background-image: url('assets/service-icons-3d.png'); background-repeat: no-repeat; background-size: 200% 200%; content: ""; opacity: .16; filter: saturate(1.15) contrast(1.08); mix-blend-mode: multiply; pointer-events: none; }
+    .service-card:nth-child(1)::after { background-position: 0 0; }
+    .service-card:nth-child(2)::after { background-position: 100% 0; }
+    .service-card:nth-child(3)::after { background-position: 0 100%; }
+    .service-card:nth-child(4)::after { background-position: 100% 100%; }
+    .service-card > * { position: relative; z-index: 1; }
+    .service-card:hover { border-color: #a9cbef; box-shadow: var(--shadow); transform: translateY(-4px); }
+    .icon-box { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 45px; border-radius: 14px; color: var(--white); background: linear-gradient(145deg, var(--blue), var(--blue-dark)); font-size: 1.15rem; font-weight: 900; box-shadow: 0 9px 22px rgba(9, 105, 215, .18); }
+    .service-card h3 { margin-bottom: 10px; font-size: 1.38rem; }
+    .service-card p { flex: 1; color: var(--muted); font-size: .91rem; }
+
+    .fence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .fence-card { padding: 25px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); }
+    .fence-card h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 1.08rem; }
+    .fence-card h3::before { width: 9px; height: 30px; border-radius: 3px; background: var(--blue); content: ""; }
+    .fence-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    .feature { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+    .feature.reverse .feature-media { order: 2; }
+    .chain-link-showcase, .aluminum-showcase { margin-top: 54px; padding-top: 54px; border-top: 1px solid var(--line); }
+    .feature-media { position: relative; overflow: hidden; border-radius: 22px; background: #07111f; box-shadow: var(--shadow); }
+    .feature-media img, .feature-media video { width: 100%; height: 530px; object-fit: cover; }
+    .feature-media video { object-fit: contain; }
+    .feature-chip { position: absolute; right: 18px; bottom: 18px; padding: 10px 13px; border-radius: 99px; color: var(--white); background: rgba(6, 36, 70, .85); font-size: .7rem; font-weight: 800; letter-spacing: .05em; }
+    .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 22px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .benefits li { position: relative; padding-left: 27px; color: #36485e; font-size: .88rem; font-weight: 700; }
+    .benefits li::before { position: absolute; left: 0; color: var(--blue); content: "✓"; font-weight: 900; }
+
+    .project-grid { display: grid; grid-template-columns: 1.18fr .82fr .82fr; gap: 18px; }
+    .project-card { position: relative; min-height: 470px; overflow: hidden; border-radius: 18px; background: #d9e2ec; box-shadow: 0 12px 34px rgba(23, 52, 87, .09); }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .project-card:hover img { transform: scale(1.025); }
+    .project-caption { position: absolute; right: 0; bottom: 0; left: 0; padding: 65px 22px 20px; color: var(--white); background: linear-gradient(transparent, rgba(5, 24, 44, .93)); }
+    .project-caption strong { display: block; font-size: 1.04rem; }
+    .project-caption span { color: #d6e7f8; font-size: .76rem; }
+    .gallery-carousel { position: relative; margin-top: 24px; }
+    .carousel-viewport { overflow: hidden; border-radius: 20px; }
+    .carousel-track { display: flex; transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+    .carousel-slide { position: relative; flex: 0 0 100%; height: min(70vh, 650px); margin: 0; overflow: hidden; background: #d9e2ec; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-slide .project-caption { padding: 100px 84px 34px; }
+    .carousel-slide .project-caption strong { font-size: clamp(1.15rem, 2.5vw, 1.65rem); }
+    .carousel-control { position: absolute; top: 50%; z-index: 2; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; color: #fff; background: rgba(5,24,44,.74); font-size: 1.5rem; cursor: pointer; transform: translateY(-50%); backdrop-filter: blur(8px); }
+    .carousel-control:hover { background: var(--blue); }
+    .carousel-control.prev { left: 18px; }
+    .carousel-control.next { right: 18px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+    .carousel-dot { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%; background: #b7c8da; cursor: pointer; }
+    .carousel-dot.active { width: 28px; border-radius: 99px; background: var(--blue); }
+
+    .difference { display: grid; grid-template-columns: .88fr 1.12fr; align-items: start; gap: 70px; }
+    .difference p { color: #d8eaff; }
+    .difference-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .difference-card { min-height: 155px; padding: 23px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 14px; background: rgba(255, 255, 255, .08); }
+    .difference-card span { display: block; margin-bottom: 16px; color: #9fd0ff; font-size: .76rem; font-weight: 900; }
+    .difference-card h3 { margin: 0; font-size: 1.03rem; }
+
+    .story-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .story-panel { padding: 38px; border-radius: 22px; background: var(--blue-soft); }
+    .story-panel p:last-child { margin-bottom: 0; }
+    .owner { display: grid; grid-template-columns: .68fr 1.32fr; align-items: stretch; gap: 36px; margin-top: 68px; }
+    .owner-placeholder { min-height: 430px; display: grid; place-items: center; padding: 30px; border: 2px dashed #b8c9dc; border-radius: 20px; color: #62758c; background: linear-gradient(145deg, #eef4fb, #fbfdff); text-align: center; }
+    .owner-avatar { width: 95px; height: 95px; display: grid; place-items: center; margin: 0 auto 18px; border-radius: 50%; color: var(--white); background: linear-gradient(145deg, var(--blue), var(--blue-dark)); font-size: 1.8rem; font-weight: 900; }
+    .owner-placeholder strong { display: block; color: var(--navy); }
+    .owner-placeholder small { display: block; max-width: 230px; margin-top: 5px; }
+    .owner-photo { min-height: 430px; overflow: hidden; border-radius: 20px; background: #dce8f5; box-shadow: var(--shadow); }
+    .owner-photo img { width: 100%; height: 100%; min-height: 430px; display: block; object-fit: cover; object-position: center 22%; }
+    .owner-copy { padding: 40px; border: 1px solid var(--line); border-radius: 20px; }
+    .owner-copy h3 { margin: 0 0 4px; font-size: 1.8rem; }
+    .owner-role { margin-bottom: 25px; color: var(--blue); font-size: .84rem; font-weight: 800; text-transform: uppercase; }
+    .owner-copy p:last-child { margin-bottom: 0; color: var(--muted); }
+
+    .customer-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .customer-item { padding: 20px 10px; border: 1px solid var(--line); border-radius: 12px; color: var(--navy); background: var(--white); font-size: .82rem; font-weight: 800; text-align: center; }
+
+    .areas { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+    .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .area { display: flex; align-items: center; gap: 10px; padding: 15px 16px; border: 1px solid var(--line); border-radius: 11px; background: var(--white); font-size: .84rem; font-weight: 750; }
+    .area::before { color: var(--blue); content: "●"; font-size: .65rem; }
+    .area-note { margin-top: 24px; padding: 18px 20px; border-left: 4px solid var(--blue); border-radius: 8px; color: #3e5065; background: var(--blue-soft); font-size: .86rem; }
+
+    .contact-grid { display: grid; grid-template-columns: .72fr 1.28fr; align-items: start; gap: 60px; }
+    .contact-details { display: grid; gap: 12px; margin-top: 30px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 12px; background: rgba(255, 255, 255, .08); }
+    .contact-item strong { display: block; font-size: .76rem; text-transform: uppercase; }
+    .contact-item span { color: #d8eaff; font-size: .87rem; }
+    .estimate-form { padding: 32px; border-radius: 20px; color: var(--ink); background: var(--white); box-shadow: 0 24px 60px rgba(3, 32, 68, .25); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #33445a; font-size: .77rem; font-weight: 800; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #cbd7e4; border-radius: 9px; color: var(--ink); background: var(--white); }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:hover, .field select:hover, .field textarea:hover { border-color: #8eb8e6; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(9, 105, 215, .11); outline: none; }
+    .upload { padding: 15px; border: 1px dashed #9db5cf; border-radius: 10px; background: #f7faff; }
+    .upload input { min-height: auto; padding: 0; border: 0; background: transparent; }
+    .field-help { color: #708095; font-size: .7rem; }
+    .estimate-form .button { width: 100%; margin-top: 6px; }
+    .privacy-note { margin: 11px 0 0; color: #6d7a8b; font-size: .68rem; text-align: center; }
+
+    .footer { padding: 62px 0 25px; border-top: 5px solid var(--blue); color: var(--ink); background: var(--white); }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 55px; }
+    .footer .brand { width: fit-content; min-width: 0; }
+    .footer .brand-logo { width: 270px; height: 86px; border-radius: 0; background: transparent; box-shadow: none; }
+    .footer .brand-copy strong { color: var(--navy); }
+    .footer p { max-width: 470px; margin-top: 18px; color: var(--muted); font-size: .82rem; }
+    .footer h3 { margin-bottom: 14px; color: var(--navy); font-size: .84rem; letter-spacing: .04em; text-transform: uppercase; }
+    .footer-links { display: grid; gap: 9px; color: #56677b; font-size: .78rem; }
+    .footer-links a:hover { color: var(--blue); text-decoration: underline; }
+    .copyright { display: flex; justify-content: space-between; gap: 20px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); color: #77879a; font-size: .7rem; }
+
+    .mobile-actions { position: fixed; right: 0; bottom: 0; left: 0; z-index: 60; display: none; grid-template-columns: 1fr 1fr; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(255, 255, 255, .97); box-shadow: 0 -8px 28px rgba(20, 45, 73, .12); }
+    .mobile-actions a { min-height: 44px; display: grid; place-items: center; border-radius: 8px; color: var(--blue); font-size: .78rem; font-weight: 850; }
+    .mobile-actions a:last-child { color: var(--white); background: var(--blue); }
+
+    .chat-launcher { position: fixed; right: 22px; bottom: 22px; z-index: 80; min-height: 52px; padding: 0 20px; border: 0; border-radius: 999px; color: #fff; background: var(--blue); box-shadow: 0 14px 34px rgba(7, 55, 117, .28); font: inherit; font-size: .82rem; font-weight: 850; cursor: pointer; }
+    .chat-launcher:hover { transform: translateY(-2px); background: var(--navy); }
+    .chat-panel { position: fixed; right: 22px; bottom: 86px; z-index: 81; width: min(390px, calc(100vw - 28px)); overflow: hidden; border: 1px solid #cfe0f2; border-radius: 18px; background: #fff; box-shadow: 0 24px 70px rgba(10, 35, 64, .24); }
+    .chat-panel[hidden] { display: none; }
+    .chat-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; color: #fff; background: linear-gradient(135deg, var(--navy), var(--blue)); }
+    .chat-header strong { display: block; font-size: .95rem; }
+    .chat-header small { color: #dcecff; font-size: .7rem; }
+    .chat-close { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: #fff; background: transparent; font-size: 1.35rem; cursor: pointer; }
+    .chat-messages { height: 310px; overflow-y: auto; padding: 16px; background: #f5f8fc; }
+    .chat-message { width: fit-content; max-width: 88%; margin: 0 0 10px; padding: 10px 12px; border-radius: 13px 13px 13px 4px; color: var(--ink); background: #fff; box-shadow: 0 3px 12px rgba(20,45,73,.07); font-size: .78rem; line-height: 1.5; }
+    .chat-message.user { margin-left: auto; border-radius: 13px 13px 4px 13px; color: #fff; background: var(--blue); }
+    .chat-suggestions { display: flex; gap: 7px; padding: 0 14px 12px; overflow-x: auto; background: #f5f8fc; }
+    .chat-suggestion { flex: 0 0 auto; padding: 8px 11px; border: 1px solid #bfd4eb; border-radius: 999px; color: var(--blue); background: #fff; font: inherit; font-size: .68rem; font-weight: 800; cursor: pointer; }
+    .chat-form { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 12px; border-top: 1px solid var(--line); }
+    .chat-form input { min-width: 0; min-height: 44px; padding: 0 12px; border: 1px solid #b8c9da; border-radius: 9px; font: inherit; font-size: .78rem; }
+    .chat-form button { min-width: 62px; border: 0; border-radius: 9px; color: #fff; background: var(--blue); font: inherit; font-size: .74rem; font-weight: 850; cursor: pointer; }
+    .chat-whatsapp { display: block; padding: 11px 16px; color: #087d46; background: #effbf5; text-align: center; font-size: .74rem; font-weight: 850; }
+    .chat-whatsapp:hover { background: #dcf7e9; }
+
+    @media (max-width: 1040px) {
+      .nav-links { display: none; position: absolute; top: 84px; right: 0; left: 0; align-items: stretch; padding: 20px; border-top: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow); flex-direction: column; gap: 4px; }
+      .nav-links.open { display: flex; }
+      .nav-links > a:not(.button) { padding: 11px 5px; }
+      .nav-links > a:not(.button)::after { display: none; }
+      .menu-button { display: block; }
+      .language-switch { margin-left: auto; }
+      .hero-grid, .feature, .difference, .story-grid, .areas, .contact-grid { gap: 42px; }
+      .customer-list { grid-template-columns: repeat(3, 1fr); }
+      .main-services { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 800px) {
+      body { padding-bottom: 62px; }
+      .utility { display: none; }
+      .nav { min-height: 74px; }
+      .nav-links { top: 74px; }
+      .brand-logo { width: 180px; height: 58px; }
+      .brand-copy strong { font-size: 1rem; }
+      .hero { min-height: calc(100vh - 74px); padding: 75px 0 100px; }
+      .hero-grid, .feature, .difference, .story-grid, .owner, .areas, .contact-grid { grid-template-columns: 1fr; }
+      .main-services, .fence-grid { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .project-card:first-child { grid-column: 1 / -1; }
+      .reviews-inner { grid-template-columns: 1fr; }
+      .feature.reverse .feature-media { order: 0; }
+      .feature-media img, .feature-media video { height: 460px; }
+      .owner-placeholder { min-height: 340px; }
+      .mobile-actions { display: grid; }
+      .chat-launcher { right: 14px; bottom: 76px; }
+      .chat-panel { right: 14px; bottom: 140px; }
+      .section { padding: 76px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .brand { min-width: auto; }
+      .brand-logo { width: 150px; height: 50px; }
+      .hero h1 { font-size: 2.9rem; }
+      .hero-actions { display: grid; }
+      .hero-actions .button { width: 100%; }
+      .hero-proof { display: grid; gap: 7px; }
+      .main-services, .fence-grid, .difference-grid, .benefits, .customer-list, .area-grid, .form-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card:first-child { grid-column: auto; }
+      .project-card { min-height: 390px; }
+      .carousel-slide { height: 520px; }
+      .carousel-slide .project-caption { padding: 80px 62px 28px; }
+      .field.full { grid-column: auto; }
+      .service-card { min-height: auto; }
+      .icon-box { margin-bottom: 28px; }
+      .feature-media img, .feature-media video { height: 360px; }
+      .carousel-slide { height: 470px; }
+      .carousel-slide .project-caption { padding: 70px 22px 24px; }
+      .carousel-control { width: 42px; height: 42px; }
+      .estimate-form, .owner-copy, .story-panel { padding: 24px; }
+      .reviews-inner { padding: 24px; }
+      .reviews-copy { align-items: flex-start; gap: 15px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .copyright { display: block; }
+      .copyright span { display: block; margin-top: 7px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="utility">
+    <div class="container utility-inner">
+      <span>Serving Augusta, Georgia and surrounding CSRA communities</span>
+      <span><a href="tel:+17623040141">(762) 304-0141</a> &nbsp;•&nbsp; <a href="mailto:camintel.tech@gmail.com">camintel.tech@gmail.com</a></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="CAMINTEL Technology Solution LLC home">
+        <img class="brand-logo" src="assets/camintel-logo-3d.jpg" alt="CAMINTEL Technology Solution LLC three-dimensional blue logo" width="1254" height="1254">
+        <span class="brand-copy"><strong>CAMINTEL</strong><small>Technology Solution LLC</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#fencing">Fencing</a>
+        <a href="#cameras">Security Cameras</a>
+        <a href="#smart-gates">Smart Gates</a>
+        <a href="#about">About Us</a>
+        <a href="#service-areas">Service Areas</a>
+        <a href="#contact">Contact</a>
+        <a class="button" href="#contact">Get a Free Estimate</a>
+      </div>
+      <div class="language-switch" aria-label="Language selection">
+        <button class="active" type="button" data-language="en" aria-pressed="true">EN</button>
+        <button type="button" data-language="es" aria-pressed="false">ES</button>
+      </div>
+      <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/aluminum-patio.jpg" aria-label="CAMINTEL brand presentation featuring professional aluminum fence materials"><source src="assets/aluminum-quality.mp4" type="video/mp4">Your browser does not support this video.</video>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="label">Fencing • Security • Smart Access</span>
+          <h1>Secure Your Property. Enhance Your Privacy.</h1>
+          <p class="lead">Professional fence installation, security cameras, and smart gate opener solutions for homes and businesses throughout the Augusta area.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Get a Free Estimate</a>
+            <a class="button button-secondary" href="https://wa.me/17623040141?text=Hello%20CAMINTEL%2C%20I%20would%20like%20to%20request%20a%20free%20estimate." target="_blank" rel="noopener noreferrer">Message Us on WhatsApp</a>
+          </div>
+          <div class="hero-proof" aria-label="Service highlights">
+            <span>Residential &amp; commercial</span>
+            <span>One reliable point of contact</span>
+            <span>Serving the greater Augusta area</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-labelledby="trust-title">
+      <div class="container">
+        <h2 id="trust-title">Quality Work. Clear Communication. Reliable Solutions.</h2>
+        <p>At CAMINTEL Technology Solution LLC, we treat every property as if it were our own. We provide professional recommendations, quality materials, careful installation, and dependable service from the first consultation to project completion.</p>
+      </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="container reviews-inner">
+        <div class="reviews-copy">
+          <span class="google-mark" aria-hidden="true">G</span>
+          <div>
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <h2 id="reviews-title">See Customer Feedback on Google</h2>
+            <p>Visit CAMINTEL on Google to read current customer reviews and share your own experience.</p>
+          </div>
+        </div>
+        <a class="button button-secondary" href="https://g.page/r/CUfNoQr7SaTyEAE/review" target="_blank" rel="noopener noreferrer">View Google Reviews ↗</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="label">Main Services</span>
+          <h2 id="services-title">Protection Built Around Your Property</h2>
+          <p class="lead">Four practical services, coordinated by one team for a safer, smarter, and more comfortable property.</p>
+        </div>
+        <div class="main-services">
+          <article class="service-card"><span class="icon-box" aria-hidden="true">F</span><h3>Fencing</h3><p>Professional fence installation and repair solutions for privacy, security, property boundaries, and curb appeal.</p><a class="text-link" href="#fencing">Learn More →</a></article>
+          <article class="service-card"><span class="icon-box" aria-hidden="true">C</span><h3>Security Cameras</h3><p>Strategically planned camera solutions that help homeowners and businesses monitor entrances, perimeters, and important areas.</p><a class="text-link" href="#cameras">Learn More →</a></article>
+          <article class="service-card"><span class="icon-box" aria-hidden="true">G</span><h3>Smart Gate Openers</h3><p>Convenient and secure gate automation solutions designed to improve property access and control.</p><a class="text-link" href="#smart-gates">Learn More →</a></article>
+          <article class="service-card"><span class="icon-box" aria-hidden="true">TV</span><h3>TV Mounting</h3><p>Professional television mounting focused on secure placement, clean alignment, and a polished finished appearance.</p><a class="text-link" href="#tv-mounting">Learn More →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="fencing" aria-labelledby="fencing-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="label">Fence Services</span>
+          <h2 id="fencing-title">Fence Installation &amp; Repair</h2>
+          <p class="lead">Practical options for privacy, security, property definition, and a finished appearance that complements your home or business.</p>
+        </div>
+        <div class="fence-grid">
+          <article class="fence-card"><h3>Wood Fences</h3><p>A classic and versatile option that provides privacy, security, and natural beauty. We install wood fences designed to complement your property and meet your functional needs.</p></article>
+          <article class="fence-card"><h3>Vinyl Fences</h3><p>A clean, attractive, and low-maintenance fencing solution. Vinyl fences offer long-lasting privacy without the regular painting or staining required by traditional wood.</p></article>
+          <article class="fence-card"><h3>Aluminum Fences</h3><p>An elegant and durable option for residential and commercial properties. Aluminum fencing provides security and visibility while resisting rust and requiring minimal maintenance.</p></article>
+          <article class="fence-card"><h3>Chain-Link Fences</h3><p>A practical and cost-effective solution for securing yards, commercial spaces, equipment, and other property areas.</p></article>
+          <article class="fence-card"><h3>Privacy Fences</h3><p>Create a more private and comfortable outdoor space. Our privacy fence solutions help reduce visibility, define property boundaries, and improve security.</p></article>
+          <article class="fence-card"><h3>Fence Installation &amp; Repair</h3><p>From new installations to damaged sections, leaning posts, gates, and storm-related repairs, CAMINTEL provides careful evaluations and dependable fence solutions.</p></article>
+        </div>
+        <div class="feature reverse aluminum-showcase">
+          <div class="feature-media">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="assets/black-aluminum-fence-2026.jpg" aria-label="CAMINTEL aluminum fence installation project video"><source src="assets/aluminum-fence-installation-2026.mp4" type="video/mp4">Your browser does not support this video.</video>
+          </div>
+          <div>
+            <span class="label">Durable, Clean &amp; Low Maintenance</span>
+            <h2>Aluminum Fence Installation in Action</h2>
+            <p class="lead">See the materials, alignment, and finished appearance of a CAMINTEL aluminum fence project designed for lasting security and curb appeal.</p>
+            <a class="button" href="#contact">Request an Aluminum Fence Estimate</a>
+          </div>
+        </div>
+        <div class="feature chain-link-showcase">
+          <div class="feature-media">
+            <video controls playsinline preload="metadata" poster="assets/video-poster.jpg" aria-label="CAMINTEL chain-link fence installation project video"><source src="assets/trabajo-camintel.mp4" type="video/mp4">Your browser does not support this video.</video>
+            <span class="feature-chip">Chain-Link Fence Installation</span>
+          </div>
+          <div>
+            <span class="label">Practical Property Security</span>
+            <h2>Chain-Link Installation in Action</h2>
+            <p class="lead">See CAMINTEL complete a chain-link fence project designed to provide dependable property definition, visibility, and cost-effective security.</p>
+            <a class="button" href="#contact">Request a Fence Estimate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cameras" aria-labelledby="cameras-title">
+      <div class="container feature">
+        <div class="feature-media">
+          <video controls playsinline preload="metadata" aria-label="CAMINTEL professional security camera installation project video"><source src="assets/security-camera.mp4" type="video/mp4">Your browser does not support this video.</video>
+          <span class="feature-chip">Security Camera Solutions</span>
+        </div>
+        <div>
+          <span class="label">Smarter Visibility</span>
+          <h2 id="cameras-title">Professional Security Camera Installation</h2>
+          <p class="lead">Protect your home or business with professionally planned security camera solutions. We help determine proper camera placement, coverage areas, viewing angles, and system configuration to reduce blind spots and improve visibility around your property.</p>
+          <ul class="benefits">
+            <li>Residential and commercial camera systems</li>
+            <li>Strategic camera placement</li>
+            <li>Entrance and perimeter monitoring</li>
+            <li>Remote viewing options</li>
+            <li>System setup and customer guidance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="tv-mounting" aria-labelledby="tv-title">
+      <div class="container feature reverse">
+        <div class="feature-media">
+          <video controls playsinline preload="metadata" aria-label="CAMINTEL professional TV mounting project video"><source src="assets/smart-gate-opener.mp4" type="video/mp4">Your browser does not support this video.</video>
+          <span class="feature-chip">Professional TV Mounting</span>
+        </div>
+        <div>
+          <span class="label">Clean, Secure Installation</span>
+          <h2 id="tv-title">Professional TV Mounting</h2>
+          <p class="lead">Create a cleaner, more comfortable viewing space with a professionally mounted television. CAMINTEL helps position and secure your TV for proper height, alignment, and dependable support.</p>
+          <ul class="benefits">
+            <li>Secure wall mounting</li>
+            <li>Careful height and viewing-angle planning</li>
+            <li>Clean, level installation</li>
+            <li>Residential and commercial spaces</li>
+            <li>Fixed and adjustable mount options</li>
+            <li>Customer guidance after installation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="smart-gates" aria-labelledby="gates-title">
+      <div class="container feature reverse">
+        <div class="feature-media">
+          <img src="assets/dual-smart-gate-openers.jpg" alt="Completed CAMINTEL installation of two automatic gate opener arms on a decorative black driveway gate" width="1200" height="1600" loading="lazy">
+          <span class="feature-chip">Connected Gate Access</span>
+        </div>
+        <div>
+          <span class="label">Convenient Control</span>
+          <h2 id="gates-title">Smart Gate Opener Solutions</h2>
+          <p class="lead">Add convenience, security, and controlled access to your property with a smart gate opener. CAMINTEL provides gate automation solutions designed around your entrance, daily use, and security needs.</p>
+          <ul class="benefits">
+            <li>Remote-controlled access</li>
+            <li>Keypad entry</li>
+            <li>Smartphone-compatible options</li>
+            <li>Residential and commercial applications</li>
+            <li>Safety sensor integration</li>
+            <li>Existing gate opener upgrades</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="label">Recent Installations</span>
+          <h2 id="projects-title">Real Work by CAMINTEL</h2>
+          <p class="lead">A closer look at completed fencing and smart access projects for properties in the communities we serve.</p>
+        </div>
+        <div class="project-grid">
+          <figure class="project-card">
+            <img src="assets/vinyl-privacy-installation.jpg" alt="Completed white vinyl privacy fence installed by CAMINTEL beside a residential property" width="1200" height="1600" loading="lazy">
+            <figcaption class="project-caption"><strong>White Vinyl Privacy Fence</strong><span>Clean appearance • Low-maintenance privacy</span></figcaption>
+          </figure>
+          <figure class="project-card">
+            <img src="assets/smart-gate-controls-installation.jpg" alt="Smart automatic gate opener control system installed on a black metal gate by CAMINTEL" width="1200" height="1600" loading="lazy">
+            <figcaption class="project-caption"><strong>Smart Gate Control Installation</strong><span>Automated access • Professional configuration</span></figcaption>
+          </figure>
+          <figure class="project-card">
+            <img src="assets/dual-smart-gate-openers.jpg" alt="Two automatic gate opener arms installed on a decorative black driveway gate" width="1200" height="1600" loading="lazy">
+            <figcaption class="project-caption"><strong>Dual Gate Opener System</strong><span>Controlled entry • Coordinated operation</span></figcaption>
+          </figure>
+        </div>
+        <div class="gallery-carousel" aria-label="New CAMINTEL project gallery carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <figure class="carousel-slide">
+                <img src="assets/smart-gate-dual-installation-2026.jpg" alt="Completed dual automatic gate opener installation on a black metal residential gate" width="768" height="1024" loading="lazy">
+                <figcaption class="project-caption"><strong>Automated Residential Entry</strong><span>Dual operators &bull; Secure daily access</span></figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/wood-fence-installation-progress-2026.jpg" alt="CAMINTEL wood privacy fence installation in progress with posts and materials prepared" width="1200" height="1600" loading="lazy">
+                <figcaption class="project-caption"><strong>Wood Fence Installation in Progress</strong><span>Careful layout &bull; Quality materials</span></figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/camintel-gate-technician-2026.jpg" alt="CAMINTEL technician configuring an automatic gate control system" width="1122" height="1402" loading="lazy">
+                <figcaption class="project-caption"><strong>Professional Gate Configuration</strong><span>Technical setup &bull; Attention to detail</span></figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/black-aluminum-fence-2026.jpg" alt="Completed black aluminum fence and walk gate installed around a residential yard" width="1024" height="768" loading="lazy">
+                <figcaption class="project-caption"><strong>Black Aluminum Fence &amp; Gate</strong><span>Durable security &bull; Clean finish</span></figcaption>
+              </figure>
+              <figure class="carousel-slide"><img src="assets/security-camera-eave-wide.jpg" alt="Outdoor security camera installed under a residential roof edge" loading="lazy"><figcaption class="project-caption"><strong>Outdoor Security Camera</strong><span>Elevated coverage &bull; Professional placement</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/security-camera-closeup.jpg" alt="Close view of a professionally installed outdoor security camera" loading="lazy"><figcaption class="project-caption"><strong>Camera Installation Detail</strong><span>Secure mounting &bull; Clear viewing angle</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/white-porch-railing.jpg" alt="Completed white porch railing installed beside a residential garden" loading="lazy"><figcaption class="project-caption"><strong>White Porch Railing</strong><span>Clean lines &bull; Finished appearance</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/white-picket-gate.jpg" alt="Completed white picket-style residential garden gate" loading="lazy"><figcaption class="project-caption"><strong>White Picket Gate</strong><span>Welcoming design &bull; Defined access</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-privacy-fence-driveway.jpg" alt="Completed wood privacy fence with multiple driveway gates" loading="lazy"><figcaption class="project-caption"><strong>Wood Privacy Fence &amp; Gates</strong><span>Wide coverage &bull; Functional access</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-picket-fence-estate.jpg" alt="Completed wood picket fence surrounding a residential property" loading="lazy"><figcaption class="project-caption"><strong>Residential Wood Picket Fence</strong><span>Property definition &bull; Natural finish</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-fence-bracing.jpg" alt="Wood fence installation supported with temporary bracing during construction" loading="lazy"><figcaption class="project-caption"><strong>Fence Installation Process</strong><span>Measured alignment &bull; Careful construction</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-shadowbox-fence-home.jpg" alt="Completed shadowbox-style wood fence beside a residential home" loading="lazy"><figcaption class="project-caption"><strong>Shadowbox Wood Fence</strong><span>Balanced privacy &bull; Attractive design</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-shadowbox-fence-yard.jpg" alt="Completed wood shadowbox fence across a residential backyard" loading="lazy"><figcaption class="project-caption"><strong>Backyard Fence Installation</strong><span>Secure boundary &bull; Open appearance</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-picket-walkway-night.jpg" alt="New wood picket fence installed along a residential walkway at night" loading="lazy"><figcaption class="project-caption"><strong>Walkway Picket Fence</strong><span>Custom layout &bull; Detailed finish</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/stained-wood-gate.jpg" alt="Completed stained wood privacy gate with black hardware" loading="lazy"><figcaption class="project-caption"><strong>Stained Wood Privacy Gate</strong><span>Strong hardware &bull; Coordinated finish</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-privacy-fence-gate.jpg" alt="Completed natural wood privacy fence and access gate beside a deck" loading="lazy"><figcaption class="project-caption"><strong>Wood Privacy Gate</strong><span>Private access &bull; Solid construction</span></figcaption></figure>
+              <figure class="carousel-slide"><img src="assets/wood-privacy-fence-corner.jpg" alt="Completed wood privacy fence wrapping around a residential yard corner" loading="lazy"><figcaption class="project-caption"><strong>Corner Privacy Fence</strong><span>Complete coverage &bull; Professional finish</span></figcaption></figure>
+            </div>
+          </div>
+          <button class="carousel-control prev" type="button" aria-label="Previous project">&#8249;</button>
+          <button class="carousel-control next" type="button" aria-label="Next project">&#8250;</button>
+          <div class="carousel-dots" aria-label="Choose a project image"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue" aria-labelledby="difference-title">
+      <div class="container difference">
+        <div>
+          <span class="label">The CAMINTEL Difference</span>
+          <h2 id="difference-title">More Than a Fence Company</h2>
+          <p>Many companies focus only on building fences. CAMINTEL combines fencing, security cameras, and smart gate technology to provide a more complete property solution. Instead of coordinating multiple contractors, customers can work with one company to improve privacy, monitor their property, and control access.</p>
+        </div>
+        <div class="difference-grid">
+          <article class="difference-card"><span>01</span><h3>One Company, Multiple Solutions</h3></article>
+          <article class="difference-card"><span>02</span><h3>Technical Knowledge</h3></article>
+          <article class="difference-card"><span>03</span><h3>Personal Attention</h3></article>
+          <article class="difference-card"><span>04</span><h3>Professional Planning</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="story-title">
+      <div class="container">
+        <div class="story-grid">
+          <div>
+            <span class="label">About CAMINTEL</span>
+            <h2 id="story-title">Our Story</h2>
+          </div>
+          <div class="story-panel"><p>CAMINTEL Technology Solution LLC was created to help homeowners and businesses protect, improve, and regain control of their properties. After seeing the growing need for dependable fencing and security services in the Augusta area, Jonathan recognized that customers often had to hire separate companies for fences, security cameras, and gate automation. CAMINTEL was built to provide these services through one reliable point of contact.</p></div>
+        </div>
+        <div class="owner" aria-labelledby="owner-title">
+          <figure class="owner-photo">
+            <img src="assets/jonathan-bonilla-owner.jpg" alt="Jonathan Bonilla, founder and project lead of CAMINTEL Technology Solution LLC" width="1254" height="1254" loading="lazy">
+          </figure>
+          <div class="owner-copy">
+            <span class="label">Meet the Owner</span>
+            <h3 id="owner-title">Jonathan Bonilla</h3>
+            <div class="owner-role">Founder &amp; Project Lead</div>
+            <p>Jonathan brings a background in telecommunications engineering and a master’s degree in industrial project management to every CAMINTEL project. His technical knowledge and project management experience allow him to evaluate each property carefully, recommend practical solutions, and coordinate installations with attention to quality, functionality, and detail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="customers-title">
+      <div class="container">
+        <div class="section-heading center"><span class="label">Who We Help</span><h2 id="customers-title">Solutions for Homes and Businesses</h2></div>
+        <div class="customer-list"><div class="customer-item">Homeowners</div><div class="customer-item">Landlords</div><div class="customer-item">Property Managers</div><div class="customer-item">Commercial Businesses</div><div class="customer-item">Contractors</div><div class="customer-item">Organizations</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="service-areas" aria-labelledby="areas-title">
+      <div class="container areas">
+        <div>
+          <span class="label">Local Service</span>
+          <h2 id="areas-title">Proudly Serving the Greater Augusta Area</h2>
+          <p class="lead">CAMINTEL Technology Solution LLC is based in Augusta, Georgia, and serves surrounding communities throughout the Central Savannah River Area.</p>
+          <p class="area-note"><strong>Not sure whether your property is within our service area?</strong> Contact us with your location and project details.</p>
+        </div>
+        <div class="area-grid" aria-label="CAMINTEL service areas">
+          <div class="area">Augusta, GA</div><div class="area">Evans, GA</div><div class="area">Martinez, GA</div><div class="area">Grovetown, GA</div><div class="area">Hephzibah, GA</div><div class="area">North Augusta, SC</div><div class="area">Aiken, SC</div><div class="area">Surrounding CSRA communities</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-blue" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <span class="label">Start Your Project</span>
+          <h2 id="contact-title">Request Your Free Estimate</h2>
+          <p class="lead">Share a few details about your property and the solution you need. Your request will be prepared for CAMINTEL by email.</p>
+          <div class="contact-details">
+            <a class="contact-item" href="tel:+17623040141"><span class="icon-box" aria-hidden="true" style="margin:0;width:44px;height:44px;font-size:.8rem">TEL</span><span><strong>Phone</strong>(762) 304-0141</span></a>
+            <a class="contact-item" href="mailto:camintel.tech@gmail.com"><span class="icon-box" aria-hidden="true" style="margin:0;width:44px;height:44px;font-size:.8rem">@</span><span><strong>Email</strong>camintel.tech@gmail.com</span></a>
+            <div class="contact-item"><span class="icon-box" aria-hidden="true" style="margin:0;width:44px;height:44px;font-size:.8rem">GA</span><span><strong>Location</strong>Augusta, Georgia</span></div>
+          </div>
+        </div>
+        <form class="estimate-form" id="estimate-form">
+          <div class="form-grid">
+            <div class="field"><label for="full-name">Full Name *</label><input id="full-name" name="fullName" autocomplete="name" required></div>
+            <div class="field"><label for="phone">Phone Number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="address">Property Address or ZIP Code *</label><input id="address" name="address" autocomplete="postal-code" required></div>
+            <div class="field"><label for="property-type">Residential or Commercial *</label><select id="property-type" name="propertyType" required><option value="">Select property type</option><option>Residential</option><option>Commercial</option></select></div>
+            <div class="field"><label for="service">Service Needed *</label><select id="service" name="service" required><option value="">Select a service</option><option>Wood Fence</option><option>Vinyl Fence</option><option>Aluminum Fence</option><option>Chain-Link Fence</option><option>Privacy Fence</option><option>Fence Repair</option><option>Security Cameras</option><option>Smart Gate Opener</option><option>TV Mounting</option><option>Multiple Services</option><option>Other</option></select></div>
+            <div class="field full"><label for="description">Project Description *</label><textarea id="description" name="description" placeholder="Tell us about your property, approximate measurements, current conditions, and project goals." required></textarea></div>
+            <div class="field"><label for="contact-method">Preferred Contact Method *</label><select id="contact-method" name="contactMethod" required><option value="">Select a method</option><option>Phone Call</option><option>Text Message</option><option>Email</option></select></div>
+            <div class="field"><label for="photos">Photo Upload</label><div class="upload"><input id="photos" name="photos" type="file" accept="image/*" multiple><div class="field-help" id="photo-status">Choose property photos (optional).</div></div></div>
+            <div class="field full"><button class="button" type="submit">Request My Free Estimate</button><p class="privacy-note">Submitting opens your email app with the project details addressed to CAMINTEL. Attach any selected photos before sending.</p></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="#home"><img class="brand-logo" src="assets/camintel-logo-3d.jpg" alt="CAMINTEL Technology Solution LLC three-dimensional blue logo" width="1254" height="1254"><span class="brand-copy"><strong>CAMINTEL</strong><small>Technology Solution LLC</small></span></a><p>Professional fencing, security camera installation, and smart gate opener solutions for homes and businesses throughout the greater Augusta area.</p></div>
+        <div><h3>Services</h3><div class="footer-links"><a href="#fencing">Fence Installation &amp; Repair</a><a href="#cameras">Security Cameras</a><a href="#smart-gates">Smart Gate Openers</a><a href="#tv-mounting">TV Mounting</a></div></div>
+        <div><h3>Contact</h3><div class="footer-links"><a href="tel:+17623040141">(762) 304-0141</a><a href="mailto:camintel.tech@gmail.com">camintel.tech@gmail.com</a><span>Augusta, Georgia</span><a href="https://www.facebook.com/394791510373975" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="#contact">Free Estimate</a></div></div>
+      </div>
+      <div class="copyright"><span>© <span id="year"></span> CAMINTEL Technology Solution LLC. All rights reserved.</span><span>Serving Augusta and surrounding CSRA communities.</span></div>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Quick contact actions"><a href="tel:+17623040141">Call Now</a><a href="#contact">Free Estimate</a></div>
+
+  <button class="chat-launcher" type="button" aria-controls="camintel-chat" aria-expanded="false">Chat with CAMINTEL</button>
+  <section class="chat-panel" id="camintel-chat" aria-label="CAMINTEL virtual assistant" hidden>
+    <div class="chat-header"><div><strong>CAMINTEL Assistant</strong><small>Automatic answers and WhatsApp support</small></div><button class="chat-close" type="button" aria-label="Close chat">&times;</button></div>
+    <div class="chat-messages" aria-live="polite"></div>
+    <div class="chat-suggestions" aria-label="Suggested questions">
+      <button class="chat-suggestion" type="button" data-question="fence estimate">Free estimate</button>
+      <button class="chat-suggestion" type="button" data-question="service areas">Service areas</button>
+      <button class="chat-suggestion" type="button" data-question="security cameras">Security cameras</button>
+      <button class="chat-suggestion" type="button" data-question="smart gate opener">Smart gates</button>
+    </div>
+    <form class="chat-form"><label class="sr-only" for="chat-input">Ask CAMINTEL a question</label><input id="chat-input" autocomplete="off" placeholder="Type your question..." required><button type="submit">Send</button></form>
+    <a class="chat-whatsapp" href="https://wa.me/17623040141" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
+  </section>
+
+  <script>
+    const spanishTranslations = {
+      "Serving Augusta, Georgia and surrounding CSRA communities": "Sirviendo a Augusta, Georgia y las comunidades vecinas del CSRA",
+      "Home": "Inicio", "Fencing": "Cercas", "Security Cameras": "Cámaras de seguridad", "Smart Gates": "Portones inteligentes", "About Us": "Nosotros", "Service Areas": "Áreas de servicio", "Contact": "Contacto",
+      "Get a Free Estimate": "Obtén un estimado gratuito", "Message Us on WhatsApp": "Escríbenos por WhatsApp",
+      "Fencing • Security • Smart Access": "Cercas • Seguridad • Acceso inteligente",
+      "Secure Your Property. Enhance Your Privacy.": "Protege tu propiedad. Mejora tu privacidad.",
+      "Professional fence installation, security cameras, and smart gate opener solutions for homes and businesses throughout the Augusta area.": "Instalación profesional de cercas, cámaras de seguridad y soluciones de apertura inteligente de portones para hogares y negocios en toda el área de Augusta.",
+      "Residential & commercial": "Residencial y comercial", "One reliable point of contact": "Un solo contacto confiable", "Serving the greater Augusta area": "Sirviendo al área metropolitana de Augusta",
+      "Quality Work. Clear Communication. Reliable Solutions.": "Trabajo de calidad. Comunicación clara. Soluciones confiables.",
+      "At CAMINTEL Technology Solution LLC, we treat every property as if it were our own. We provide professional recommendations, quality materials, careful installation, and dependable service from the first consultation to project completion.": "En CAMINTEL Technology Solution LLC tratamos cada propiedad como si fuera nuestra. Ofrecemos recomendaciones profesionales, materiales de calidad, instalación cuidadosa y servicio confiable desde la primera consulta hasta completar el proyecto.",
+      "See Customer Feedback on Google": "Mira las opiniones de clientes en Google", "Visit CAMINTEL on Google to read current customer reviews and share your own experience.": "Visita CAMINTEL en Google para leer reseñas actuales y compartir tu experiencia.", "View Google Reviews ↗": "Ver reseñas en Google ↗",
+      "Main Services": "Servicios principales", "Protection Built Around Your Property": "Protección diseñada para tu propiedad", "Four practical services, coordinated by one team for a safer, smarter, and more comfortable property.": "Cuatro servicios prácticos coordinados por un solo equipo para una propiedad más segura, inteligente y cómoda.",
+      "Professional fence installation and repair solutions for privacy, security, property boundaries, and curb appeal.": "Soluciones profesionales de instalación y reparación de cercas para privacidad, seguridad, límites de propiedad y una mejor apariencia.",
+      "Strategically planned camera solutions that help homeowners and businesses monitor entrances, perimeters, and important areas.": "Soluciones de cámaras planificadas estratégicamente para vigilar entradas, perímetros y áreas importantes de hogares y negocios.",
+      "Smart Gate Openers": "Abridores inteligentes de portones", "Convenient and secure gate automation solutions designed to improve property access and control.": "Soluciones cómodas y seguras de automatización de portones para mejorar el acceso y control de la propiedad.",
+      "TV Mounting": "Instalación de televisores", "Professional television mounting focused on secure placement, clean alignment, and a polished finished appearance.": "Instalación profesional de televisores enfocada en una colocación segura, alineación precisa y acabado limpio.", "Learn More →": "Más información →",
+      "Fence Services": "Servicios de cercas", "Fence Installation & Repair": "Instalación y reparación de cercas", "Practical options for privacy, security, property definition, and a finished appearance that complements your home or business.": "Opciones prácticas para privacidad, seguridad, definición de la propiedad y un acabado que complementa tu hogar o negocio.",
+      "Wood Fences": "Cercas de madera", "Vinyl Fences": "Cercas de vinilo", "Aluminum Fences": "Cercas de aluminio", "Chain-Link Fences": "Cercas de malla ciclónica", "Privacy Fences": "Cercas de privacidad",
+      "A classic and versatile option that provides privacy, security, and natural beauty. We install wood fences designed to complement your property and meet your functional needs.": "Una opción clásica y versátil que ofrece privacidad, seguridad y belleza natural. Instalamos cercas de madera diseñadas para complementar tu propiedad y satisfacer tus necesidades.",
+      "A clean, attractive, and low-maintenance fencing solution. Vinyl fences offer long-lasting privacy without the regular painting or staining required by traditional wood.": "Una solución limpia, atractiva y de bajo mantenimiento. Las cercas de vinilo brindan privacidad duradera sin requerir pintura o tinte frecuente.",
+      "An elegant and durable option for residential and commercial properties. Aluminum fencing provides security and visibility while resisting rust and requiring minimal maintenance.": "Una opción elegante y duradera para propiedades residenciales y comerciales. El aluminio brinda seguridad y visibilidad, resiste la corrosión y requiere poco mantenimiento.",
+      "A practical and cost-effective solution for securing yards, commercial spaces, equipment, and other property areas.": "Una solución práctica y económica para proteger patios, espacios comerciales, equipos y otras áreas.",
+      "Create a more private and comfortable outdoor space. Our privacy fence solutions help reduce visibility, define property boundaries, and improve security.": "Crea un espacio exterior más privado y cómodo. Nuestras cercas de privacidad reducen la visibilidad, definen límites y mejoran la seguridad.",
+      "From new installations to damaged sections, leaning posts, gates, and storm-related repairs, CAMINTEL provides careful evaluations and dependable fence solutions.": "Desde instalaciones nuevas hasta secciones dañadas, postes inclinados, portones y daños por tormentas, CAMINTEL ofrece evaluaciones cuidadosas y soluciones confiables.",
+      "Aluminum Fence Installation": "Instalación de cerca de aluminio", "Durable, Clean & Low Maintenance": "Duradera, limpia y de bajo mantenimiento", "Aluminum Fence Installation in Action": "Instalación de cerca de aluminio en acción", "See the materials, alignment, and finished appearance of a CAMINTEL aluminum fence project designed for lasting security and curb appeal.": "Observa los materiales, la alineación y el acabado de un proyecto de cerca de aluminio CAMINTEL diseñado para brindar seguridad duradera y una mejor apariencia.", "Request an Aluminum Fence Estimate": "Solicita un estimado de cerca de aluminio",
+      "Practical Property Security": "Seguridad práctica para tu propiedad", "Chain-Link Installation in Action": "Instalación de malla ciclónica en acción", "See CAMINTEL complete a chain-link fence project designed to provide dependable property definition, visibility, and cost-effective security.": "Mira cómo CAMINTEL completa una cerca de malla ciclónica diseñada para ofrecer límites definidos, visibilidad y seguridad económica.", "Request a Fence Estimate": "Solicita un estimado de cerca",
+      "Smarter Visibility": "Visibilidad inteligente", "Professional Security Camera Installation": "Instalación profesional de cámaras de seguridad", "Protect your home or business with professionally planned security camera solutions. We help determine proper camera placement, coverage areas, viewing angles, and system configuration to reduce blind spots and improve visibility around your property.": "Protege tu hogar o negocio con cámaras planificadas profesionalmente. Determinamos ubicación, cobertura, ángulos y configuración para reducir puntos ciegos y mejorar la visibilidad.",
+      "Residential and commercial camera systems": "Sistemas de cámaras residenciales y comerciales", "Strategic camera placement": "Ubicación estratégica de cámaras", "Entrance and perimeter monitoring": "Monitoreo de entradas y perímetros", "Remote viewing options": "Opciones de visualización remota", "System setup and customer guidance": "Configuración y orientación al cliente",
+      "Clean, Secure Installation": "Instalación limpia y segura", "Professional TV Mounting": "Instalación profesional de televisores", "Create a cleaner, more comfortable viewing space with a professionally mounted television. CAMINTEL helps position and secure your TV for proper height, alignment, and dependable support.": "Crea un espacio de entretenimiento más limpio y cómodo con un televisor instalado profesionalmente. CAMINTEL asegura la altura, alineación y soporte adecuados.",
+      "Secure wall mounting": "Montaje seguro en pared", "Careful height and viewing-angle planning": "Planificación de altura y ángulo de visión", "Clean, level installation": "Instalación limpia y nivelada", "Residential and commercial spaces": "Espacios residenciales y comerciales", "Fixed and adjustable mount options": "Opciones de soporte fijo y ajustable", "Customer guidance after installation": "Orientación después de la instalación",
+      "Convenient Control": "Control conveniente", "Smart Gate Opener Solutions": "Soluciones de apertura inteligente de portones", "Add convenience, security, and controlled access to your property with a smart gate opener. CAMINTEL provides gate automation solutions designed around your entrance, daily use, and security needs.": "Añade comodidad, seguridad y acceso controlado con un abridor inteligente. CAMINTEL diseña la automatización según tu entrada, uso diario y necesidades de seguridad.",
+      "Remote-controlled access": "Acceso por control remoto", "Keypad entry": "Entrada con teclado", "Smartphone-compatible options": "Opciones compatibles con teléfonos", "Residential and commercial applications": "Aplicaciones residenciales y comerciales", "Safety sensor integration": "Integración de sensores de seguridad", "Existing gate opener upgrades": "Actualización de sistemas existentes",
+      "Recent Installations": "Instalaciones recientes", "Real Work by CAMINTEL": "Trabajos reales de CAMINTEL", "A closer look at completed fencing and smart access projects for properties in the communities we serve.": "Una mirada cercana a proyectos terminados de cercas y accesos inteligentes en las comunidades que servimos.",
+      "White Vinyl Privacy Fence": "Cerca blanca de privacidad en vinilo", "Smart Gate Control Installation": "Instalación de control de portón inteligente", "Dual Gate Opener System": "Sistema doble de apertura de portón",
+      "The CAMINTEL Difference": "La diferencia CAMINTEL", "More Than a Fence Company": "Más que una empresa de cercas", "One Company, Multiple Solutions": "Una empresa, múltiples soluciones", "Technical Knowledge": "Conocimiento técnico", "Personal Attention": "Atención personalizada", "Professional Planning": "Planificación profesional",
+      "About CAMINTEL": "Acerca de CAMINTEL", "Our Story": "Nuestra historia", "Meet the Owner": "Conoce al propietario", "Founder & Project Lead": "Fundador y líder de proyectos",
+      "Who We Help": "A quién ayudamos", "Solutions for Homes and Businesses": "Soluciones para hogares y negocios", "Homeowners": "Propietarios de viviendas", "Landlords": "Arrendadores", "Property Managers": "Administradores de propiedades", "Commercial Businesses": "Empresas comerciales", "Contractors": "Contratistas", "Organizations": "Organizaciones",
+      "Local Service": "Servicio local", "Proudly Serving the Greater Augusta Area": "Sirviendo con orgullo al área metropolitana de Augusta", "CAMINTEL Technology Solution LLC is based in Augusta, Georgia, and serves surrounding communities throughout the Central Savannah River Area.": "CAMINTEL Technology Solution LLC está ubicada en Augusta, Georgia, y sirve a comunidades vecinas de la región central del río Savannah.",
+      "Not sure whether your property is within our service area?": "¿No sabes si tu propiedad está dentro de nuestra área de servicio?", "Contact us with your location and project details.": "Contáctanos con tu ubicación y los detalles del proyecto.",
+      "Start Your Project": "Comienza tu proyecto", "Request Your Free Estimate": "Solicita tu estimado gratuito", "Share a few details about your property and the solution you need. Your request will be prepared for CAMINTEL by email.": "Comparte algunos detalles sobre tu propiedad y la solución que necesitas. Tu solicitud se preparará para CAMINTEL por correo electrónico.",
+      "Phone": "Teléfono", "Email": "Correo electrónico", "Location": "Ubicación", "Full Name *": "Nombre completo *", "Phone Number *": "Número de teléfono *", "Email Address *": "Correo electrónico *", "Property Address or ZIP Code *": "Dirección de la propiedad o código postal *", "Residential or Commercial *": "Residencial o comercial *", "Service Needed *": "Servicio necesario *", "Project Description *": "Descripción del proyecto *", "Preferred Contact Method *": "Método de contacto preferido *", "Photo Upload": "Subir fotografías",
+      "Select property type": "Selecciona el tipo de propiedad", "Residential": "Residencial", "Commercial": "Comercial", "Select a service": "Selecciona un servicio", "Wood Fence": "Cerca de madera", "Vinyl Fence": "Cerca de vinilo", "Aluminum Fence": "Cerca de aluminio", "Chain-Link Fence": "Cerca de malla ciclónica", "Privacy Fence": "Cerca de privacidad", "Fence Repair": "Reparación de cerca", "Smart Gate Opener": "Abridor inteligente de portón", "Multiple Services": "Varios servicios", "Other": "Otro", "Select a method": "Selecciona un método", "Phone Call": "Llamada telefónica", "Text Message": "Mensaje de texto", "Choose property photos (optional).": "Selecciona fotos de la propiedad (opcional).", "Request My Free Estimate": "Solicitar mi estimado gratuito",
+      "Services": "Servicios", "Free Estimate": "Estimado gratuito", "Call Now": "Llamar ahora", "All rights reserved.": "Todos los derechos reservados."
+    };
+
+    const translatableNodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) { return node.parentElement && !['SCRIPT', 'STYLE'].includes(node.parentElement.tagName) && node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }
+    });
+    while (walker.nextNode()) translatableNodes.push({ node: walker.currentNode, english: walker.currentNode.textContent });
+    const originalPlaceholders = new Map([...document.querySelectorAll('[placeholder]')].map((element) => [element, element.placeholder]));
+    const placeholderTranslations = { "Tell us about your property, approximate measurements, current conditions, and project goals.": "Cuéntanos sobre tu propiedad, medidas aproximadas, condiciones actuales y objetivos del proyecto." };
+
+    function setLanguage(language) {
+      translatableNodes.forEach(({ node, english }) => {
+        const clean = english.trim();
+        const translated = spanishTranslations[clean];
+        node.textContent = language === 'es' && translated ? english.replace(clean, translated) : english;
+      });
+      originalPlaceholders.forEach((english, element) => { element.placeholder = language === 'es' ? (placeholderTranslations[english] || english) : english; });
+      document.documentElement.lang = language;
+      document.title = language === 'es' ? 'Cercas, cámaras de seguridad y portones inteligentes | CAMINTEL Augusta' : 'Fence, Security Camera & Smart Gate Services | CAMINTEL Augusta';
+      document.querySelector('meta[name="description"]').content = language === 'es' ? 'CAMINTEL ofrece instalación y reparación de cercas, cámaras de seguridad, portones inteligentes e instalación de televisores en Augusta y comunidades cercanas.' : 'CAMINTEL provides fence installation and repair, security camera installation, and smart gate opener solutions in Augusta, Evans, Martinez, Grovetown, North Augusta, Aiken, and surrounding areas. Request a free estimate.';
+      document.querySelectorAll('[data-language]').forEach((button) => { const active = button.dataset.language === language; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
+      localStorage.setItem('camintel-language', language);
+    }
+
+    document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+    setLanguage(localStorage.getItem('camintel-language') === 'es' ? 'es' : 'en');
+
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    }));
+
+    const photos = document.querySelector('#photos');
+    const photoStatus = document.querySelector('#photo-status');
+    photos.addEventListener('change', () => {
+      const count = photos.files.length;
+      photoStatus.textContent = count ? `${count} photo${count === 1 ? '' : 's'} selected. Attach to the email before sending.` : 'Choose property photos (optional).';
+    });
+
+    document.querySelector('#estimate-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = `Free Estimate Request - ${form.get('service')}`;
+      const body = [
+        'CAMINTEL Free Estimate Request',
+        '',
+        `Full Name: ${form.get('fullName')}`,
+        `Phone Number: ${form.get('phone')}`,
+        `Email Address: ${form.get('email')}`,
+        `Property Address or ZIP Code: ${form.get('address')}`,
+        `Property Type: ${form.get('propertyType')}`,
+        `Service Needed: ${form.get('service')}`,
+        `Preferred Contact Method: ${form.get('contactMethod')}`,
+        '',
+        'Project Description:',
+        form.get('description'),
+        '',
+        photos.files.length ? `Photos selected: ${photos.files.length} (please attach before sending)` : 'Photos selected: No'
+      ].join('\n');
+      window.location.href = `mailto:camintel.tech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    const carousel = document.querySelector('.gallery-carousel');
+    if (carousel) {
+      const track = carousel.querySelector('.carousel-track');
+      const slides = [...carousel.querySelectorAll('.carousel-slide')];
+      const dots = carousel.querySelector('.carousel-dots');
+      let carouselIndex = 0;
+      let carouselTimer;
+      let touchStartX = 0;
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `Show project ${index + 1}`);
+        dot.addEventListener('click', () => showSlide(index));
+        dots.appendChild(dot);
+      });
+      function showSlide(index) {
+        carouselIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+        [...dots.children].forEach((dot, dotIndex) => {
+          const active = dotIndex === carouselIndex;
+          dot.classList.toggle('active', active);
+          dot.setAttribute('aria-current', active ? 'true' : 'false');
+        });
+      }
+      function startCarousel() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        window.clearInterval(carouselTimer);
+        carouselTimer = window.setInterval(() => showSlide(carouselIndex + 1), 5200);
+      }
+      carousel.querySelector('.prev').addEventListener('click', () => { showSlide(carouselIndex - 1); startCarousel(); });
+      carousel.querySelector('.next').addEventListener('click', () => { showSlide(carouselIndex + 1); startCarousel(); });
+      carousel.addEventListener('mouseenter', () => window.clearInterval(carouselTimer));
+      carousel.addEventListener('mouseleave', startCarousel);
+      carousel.addEventListener('focusin', () => window.clearInterval(carouselTimer));
+      carousel.addEventListener('focusout', startCarousel);
+      carousel.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', (event) => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 45) showSlide(carouselIndex + (distance < 0 ? 1 : -1));
+        startCarousel();
+      }, { passive: true });
+      showSlide(0);
+      startCarousel();
+    }
+
+    const chatPanel = document.querySelector('#camintel-chat');
+    const chatLauncher = document.querySelector('.chat-launcher');
+    const chatClose = document.querySelector('.chat-close');
+    const chatMessages = document.querySelector('.chat-messages');
+    const chatForm = document.querySelector('.chat-form');
+    const chatInput = document.querySelector('#chat-input');
+    const chatWhatsApp = document.querySelector('.chat-whatsapp');
+    let lastChatQuestion = '';
+
+    const chatCopy = {
+      en: {
+        welcome: 'Hello! I am CAMINTEL\'s virtual assistant. Ask me about fencing, security cameras, smart gate openers, TV mounting, service areas, or a free estimate.',
+        fallback: 'I can help with our services, service areas, estimates, and contact information. For a project-specific recommendation, continue on WhatsApp or request a free estimate.',
+        estimate: 'Free estimates are available. Use the estimate form on this page or continue on WhatsApp with your address or ZIP code, service needed, and a short project description.',
+        fencing: 'CAMINTEL installs and repairs wood, vinyl, aluminum, chain-link, and privacy fences for residential and commercial properties.',
+        cameras: 'We plan and install residential and commercial security camera systems, including strategic placement, perimeter coverage, remote-viewing options, setup, and customer guidance.',
+        gates: 'Our smart gate services include remote controls, keypad entry, smartphone-compatible options, safety sensor integration, and upgrades to existing opener systems.',
+        tv: 'CAMINTEL provides professional TV mounting with careful height, viewing-angle, alignment, and support planning.',
+        areas: 'We serve Augusta, Evans, Martinez, Grovetown, Hephzibah, North Augusta, Aiken, and surrounding CSRA communities.',
+        contact: 'Call or text (762) 304-0141, or email camintel.tech@gmail.com. You can also continue this conversation on WhatsApp.',
+        send: 'Send', placeholder: 'Type your question...', whatsapp: 'Continue on WhatsApp', launcher: 'Chat with CAMINTEL'
+      },
+      es: {
+        welcome: '¡Hola! Soy el asistente virtual de CAMINTEL. Pregúntame sobre cercas, cámaras de seguridad, portones inteligentes, instalación de televisores, áreas de servicio o estimados gratuitos.',
+        fallback: 'Puedo ayudarte con nuestros servicios, áreas de cobertura, estimados e información de contacto. Para una recomendación específica, continúa por WhatsApp o solicita un estimado gratuito.',
+        estimate: 'Los estimados son gratuitos. Usa el formulario de esta página o continúa por WhatsApp con tu dirección o código postal, el servicio y una breve descripción del proyecto.',
+        fencing: 'CAMINTEL instala y repara cercas de madera, vinilo, aluminio, malla ciclónica y privacidad para propiedades residenciales y comerciales.',
+        cameras: 'Planificamos e instalamos cámaras residenciales y comerciales, incluida la ubicación estratégica, cobertura perimetral, visualización remota, configuración y orientación.',
+        gates: 'Nuestros servicios de portones inteligentes incluyen controles remotos, teclado, opciones para teléfonos, sensores de seguridad y actualización de sistemas existentes.',
+        tv: 'CAMINTEL ofrece instalación profesional de televisores con planificación cuidadosa de altura, ángulo de visión, alineación y soporte.',
+        areas: 'Servimos Augusta, Evans, Martinez, Grovetown, Hephzibah, North Augusta, Aiken y comunidades cercanas del CSRA.',
+        contact: 'Llama o envía un mensaje al (762) 304-0141, o escribe a camintel.tech@gmail.com. También puedes continuar esta conversación por WhatsApp.',
+        send: 'Enviar', placeholder: 'Escribe tu pregunta...', whatsapp: 'Continuar por WhatsApp', launcher: 'Chat con CAMINTEL'
+      }
+    };
+
+    function currentChatCopy() { return chatCopy[document.documentElement.lang === 'es' ? 'es' : 'en']; }
+    function addChatMessage(text, type = 'bot') {
+      const message = document.createElement('div');
+      message.className = `chat-message ${type === 'user' ? 'user' : ''}`;
+      message.textContent = text;
+      chatMessages.appendChild(message);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    function answerChat(question) {
+      const q = question.toLowerCase();
+      const copy = currentChatCopy();
+      if (/estimate|quote|price|cost|precio|costo|estimado|cotiz/.test(q)) return copy.estimate;
+      if (/fence|fencing|wood|vinyl|aluminum|chain|privacy|cerca|madera|vinilo|aluminio|malla/.test(q)) return copy.fencing;
+      if (/camera|security|surveillance|cámara|camara|seguridad|vigilancia/.test(q)) return copy.cameras;
+      if (/gate|opener|keypad|portón|porton|abridor/.test(q)) return copy.gates;
+      if (/tv|television|televisor/.test(q)) return copy.tv;
+      if (/area|location|serve|augusta|evans|martinez|grovetown|aiken|ubicaci|zona/.test(q)) return copy.areas;
+      if (/phone|email|contact|whatsapp|teléfono|telefono|correo|contacto/.test(q)) return copy.contact;
+      return copy.fallback;
+    }
+    function refreshWhatsAppLink() {
+      const language = document.documentElement.lang === 'es' ? 'es' : 'en';
+      const intro = language === 'es' ? 'Hola CAMINTEL, necesito ayuda con esta pregunta:' : 'Hello CAMINTEL, I need help with this question:';
+      chatWhatsApp.href = `https://wa.me/17623040141?text=${encodeURIComponent(`${intro} ${lastChatQuestion || 'I would like more information.'}`)}`;
+    }
+    function openChat() {
+      chatPanel.hidden = false;
+      chatLauncher.setAttribute('aria-expanded', 'true');
+      if (!chatMessages.children.length) addChatMessage(currentChatCopy().welcome);
+      chatInput.focus();
+    }
+    function closeChat() { chatPanel.hidden = true; chatLauncher.setAttribute('aria-expanded', 'false'); chatLauncher.focus(); }
+    chatLauncher.addEventListener('click', () => chatPanel.hidden ? openChat() : closeChat());
+    chatClose.addEventListener('click', closeChat);
+    chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const question = chatInput.value.trim();
+      if (!question) return;
+      lastChatQuestion = question;
+      addChatMessage(question, 'user');
+      chatInput.value = '';
+      window.setTimeout(() => addChatMessage(answerChat(question)), 250);
+      refreshWhatsAppLink();
+    });
+    document.querySelectorAll('.chat-suggestion').forEach((button) => button.addEventListener('click', () => {
+      chatInput.value = button.dataset.question;
+      chatForm.requestSubmit();
+    }));
+    const originalSetLanguage = setLanguage;
+    setLanguage = function(language) {
+      originalSetLanguage(language);
+      const copy = currentChatCopy();
+      chatLauncher.textContent = copy.launcher;
+      chatInput.placeholder = copy.placeholder;
+      chatForm.querySelector('button').textContent = copy.send;
+      chatWhatsApp.textContent = copy.whatsapp;
+      refreshWhatsAppLink();
+    };
+    setLanguage(localStorage.getItem('camintel-language') === 'es' ? 'es' : 'en');
+  </script>
+</body>
+</html>
