@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#12101a">
+  <link rel="manifest" href="manifest.json">
+  <title>Zoylimar English Tutor</title>
+  <style>
+    :root{color-scheme:dark;--accent:#8b5cf6;--muted:#a9a4b5}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(#0b0a0f,#15111f);color:white}.app{max-width:720px;margin:auto;padding:18px 16px 40px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.title{font-size:24px;font-weight:800}.sub{color:var(--muted);font-size:14px}.avatar{position:relative;border-radius:28px;overflow:hidden;background:#16131d;box-shadow:0 18px 40px rgba(0,0,0,.35)}.avatar img{width:100%;height:390px;object-fit:cover;display:block;transition:transform .3s ease}.avatar.speaking img{animation:breathe 2.4s ease-in-out infinite alternate}@keyframes breathe{from{transform:scale(1) translateY(0)}to{transform:scale(1.018) translateY(-2px)}}.status{position:absolute;left:0;right:0;bottom:0;padding:60px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.86));text-align:center}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#9b6cff;margin-right:7px}.controls{display:flex;gap:10px;justify-content:center;margin:16px 0;flex-wrap:wrap}button{border:0;border-radius:16px;padding:12px 16px;font-weight:700;background:#2a2438;color:white}button.primary{width:68px;height:68px;border-radius:50%;background:var(--accent);font-size:26px}.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:15px;margin-top:14px}.chat{display:flex;flex-direction:column;gap:10px;max-height:340px;overflow:auto}.bubble{max-width:84%;padding:11px 13px;border-radius:16px;line-height:1.35}.tutor{background:#252132;align-self:flex-start}.user{background:#7650d8;align-self:flex-end}.composer{display:flex;gap:8px;margin-top:12px}input{flex:1;border:0;border-radius:14px;padding:12px 13px;background:#211d2b;color:white;font-size:16px}.scores{display:grid;grid-template-columns:1fr auto;gap:9px;font-size:14px}.score{color:#70e49d}.notice{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4}
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div><div class="title">Zoylimar English Tutor</div><div class="sub">Conversación intermedia B1–B2</div></div><div>🎓</div></div>
+  <section class="avatar" id="avatarCard">
+    <img src="zoylimar-small.jpg" alt="Zoylimar">
+    <div class="status"><div><span class="dot"></span><strong id="statusText">Zoylimar está lista</strong></div><div class="sub">Habla en inglés. Ella te ayudará a continuar.</div></div>
+  </section>
+  <div class="controls"><button class="primary" id="micBtn" aria-label="Micrófono">🎤</button><button id="repeatBtn">🔊 Repetir</button><button id="spanishBtn">🇪🇸 Español</button></div>
+  <section class="card"><strong>Conversación</strong><div class="chat" id="chat"></div><div class="composer"><input id="textInput" placeholder="Escribe en inglés…"><button id="sendBtn">Enviar</button></div></section>
+  <section class="card"><strong>Progreso de hoy</strong><div class="scores" style="margin-top:12px"><span>Pronunciación</span><span class="score">8.0/10</span><span>Gramática</span><span class="score" id="grammar">8.0/10</span><span>Vocabulario</span><span class="score" id="vocab">8.0/10</span><span>Fluidez</span><span class="score" id="fluency">7.5/10</span></div><div class="notice">Versión de prueba web. La conversación IA avanzada y el avatar real en streaming se conectarán después mediante un backend seguro.</div></section>
+</div>
+<script>
+const chat=document.getElementById('chat'),textInput=document.getElementById('textInput'),statusText=document.getElementById('statusText'),avatarCard=document.getElementById('avatarCard');
+let lastTutor="Hi! I'm Zoylimar, your English teacher. How was your day today?";
+function bubble(text,who='tutor'){const el=document.createElement('div');el.className=`bubble ${who}`;el.textContent=text;chat.appendChild(el);chat.scrollTop=chat.scrollHeight}
+function tutorReply(userText){const t=userText.toLowerCase();if(t.includes('work')||t.includes('job'))return"Interesting. Tell me more about your work. What is the most challenging part of your job?";if(t.includes('weekend'))return"Nice. What would make this weekend different from a normal weekend for you?";if(t.includes('yesterday'))return"Good. Now try to describe one thing you did yesterday using the past tense.";if(t.includes('restaurant')||t.includes('food'))return"That sounds good. What kind of food do you usually order at a restaurant?";return"Good answer. Can you give me a little more detail and explain why you feel that way?"}
+function speak(text){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.92;u.onstart=()=>{avatarCard.classList.add('speaking');statusText.textContent='Zoylimar está hablando'};u.onend=()=>{avatarCard.classList.remove('speaking');statusText.textContent='Zoylimar está lista'};speechSynthesis.speak(u)}
+function submit(text){const clean=text.trim();if(!clean)return;bubble(clean,'user');const reply=tutorReply(clean);lastTutor=reply;setTimeout(()=>{bubble(reply,'tutor');speak(reply)},350);const wc=clean.split(/\s+/).length;document.getElementById('fluency').textContent=Math.min(10,6.5+wc/12).toFixed(1)+"/10"}
+document.getElementById('sendBtn').onclick=()=>{submit(textInput.value);textInput.value=''};textInput.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('sendBtn').click()});document.getElementById('repeatBtn').onclick=()=>speak(lastTutor);document.getElementById('spanishBtn').onclick=()=>bubble('Si necesitas ayuda, puedo explicarte brevemente en español y luego volvemos al inglés.','tutor');bubble(lastTutor,'tutor');
+const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;let recognition=null;if(SpeechRecognition){recognition=new SpeechRecognition();recognition.lang='en-US';recognition.interimResults=true;recognition.continuous=false;recognition.onstart=()=>statusText.textContent='Zoylimar está escuchando';recognition.onresult=e=>{let text='';for(let i=e.resultIndex;i<e.results.length;i++)text+=e.results[i][0].transcript;textInput.value=text};recognition.onend=()=>{statusText.textContent='Zoylimar está lista';if(textInput.value.trim()){submit(textInput.value);textInput.value=''}}}
+document.getElementById('micBtn').onclick=()=>{if(!recognition){alert('El reconocimiento de voz web no está disponible en este navegador. Puedes escribir tu respuesta.');return}try{recognition.start()}catch{}};if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js');
+</script>
+</body></html>
