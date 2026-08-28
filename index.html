@@ -648,7 +648,7 @@
             <div class="field full"><label for="description">Project Description *</label><textarea id="description" name="description" placeholder="Tell us about your property, approximate measurements, current conditions, and project goals." required></textarea></div>
             <div class="field"><label for="contact-method">Preferred Contact Method *</label><select id="contact-method" name="contactMethod" required><option value="">Select a method</option><option>Phone Call</option><option>Text Message</option><option>Email</option></select></div>
             <div class="field"><label for="photos">Photo Upload</label><div class="upload"><input id="photos" name="photos" type="file" accept="image/*" multiple><div class="field-help" id="photo-status">Choose property photos (optional).</div></div></div>
-            <div class="field full"><button class="button" type="submit">Request My Free Estimate</button><p class="privacy-note">Submitting opens your email app with the project details addressed to CAMINTEL. Attach any selected photos before sending.</p></div>
+            <div class="field full"><button class="button" type="submit">Request My Free Estimate</button><p class="privacy-note" id="estimate-status" role="status" aria-live="polite">Your request is sent directly to CAMINTEL. Selected photos are not uploaded yet; we will request them if needed.</p></div>
           </div>
         </form>
       </div>
@@ -773,28 +773,47 @@
       photoStatus.textContent = count ? `${count} photo${count === 1 ? '' : 's'} selected. Attach to the email before sending.` : 'Choose property photos (optional).';
     });
 
-    document.querySelector('#estimate-form').addEventListener('submit', (event) => {
+    document.querySelector('#estimate-form').addEventListener('submit', async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
-      const subject = `Free Estimate Request - ${form.get('service')}`;
-      const body = [
-        'CAMINTEL Free Estimate Request',
-        '',
-        `Full Name: ${form.get('fullName')}`,
-        `Phone Number: ${form.get('phone')}`,
-        `Email Address: ${form.get('email')}`,
-        `Property Address or ZIP Code: ${form.get('address')}`,
-        `Property Type: ${form.get('propertyType')}`,
-        `Service Needed: ${form.get('service')}`,
-        `Preferred Contact Method: ${form.get('contactMethod')}`,
-        '',
-        'Project Description:',
-        form.get('description'),
-        '',
-        photos.files.length ? `Photos selected: ${photos.files.length} (please attach before sending)` : 'Photos selected: No'
-      ].join('\n');
-      window.location.href = `mailto:camintel.tech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const estimateForm = event.currentTarget;
+      const form = new FormData(estimateForm);
+      const submitButton = estimateForm.querySelector('button[type="submit"]');
+      const status = document.querySelector('#estimate-status');
+      const originalButtonText = submitButton.textContent;
+      const payload = new URLSearchParams({
+        fullName: form.get('fullName'),
+        phone: form.get('phone'),
+        email: form.get('email'),
+        address: form.get('address'),
+        propertyType: form.get('propertyType'),
+        serviceNeeded: form.get('service'),
+        projectDescription: form.get('description'),
+        preferredContactMethod: form.get('contactMethod'),
+        photoCount: String(photos.files.length)
+      });
+
+      submitButton.disabled = true;
+      submitButton.textContent = document.documentElement.lang === 'es' ? 'Enviando…' : 'Sending…';
+      status.textContent = document.documentElement.lang === 'es' ? 'Enviando tu solicitud de estimado…' : 'Sending your estimate request…';
+
+      try {
+        await fetch('https://jbonil85.app.n8n.cloud/webhook/camintel-free-estimate', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: payload
+        });
+        estimateForm.reset();
+        photoStatus.textContent = document.documentElement.lang === 'es' ? 'Selecciona fotos de la propiedad (opcional).' : 'Choose property photos (optional).';
+        status.textContent = document.documentElement.lang === 'es' ? 'Solicitud recibida. CAMINTEL se comunicará contigo pronto.' : 'Request received. CAMINTEL will contact you soon.';
+      } catch (error) {
+        status.textContent = document.documentElement.lang === 'es' ? 'No pudimos enviar la solicitud. Llama o escribe al (762) 304-0141.' : 'We could not send the request. Please call or text (762) 304-0141.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
     });
+
 
     document.querySelector('#year').textContent = new Date().getFullYear();
 
