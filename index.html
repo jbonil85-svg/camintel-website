@@ -674,9 +674,11 @@
     <div class="chat-messages" aria-live="polite"></div>
     <div class="chat-suggestions" aria-label="Suggested questions">
       <button class="chat-suggestion" type="button" data-question="fence estimate">Free estimate</button>
+      <button class="chat-suggestion" type="button" data-question="fence repair">Fence repair</button>
       <button class="chat-suggestion" type="button" data-question="service areas">Service areas</button>
       <button class="chat-suggestion" type="button" data-question="security cameras">Security cameras</button>
       <button class="chat-suggestion" type="button" data-question="smart gate opener">Smart gates</button>
+      <button class="chat-suggestion" type="button" data-question="contact CAMINTEL">Contact</button>
     </div>
     <form class="chat-form"><label class="sr-only" for="chat-input">Ask CAMINTEL a question</label><input id="chat-input" autocomplete="off" placeholder="Type your question..." required><button type="submit">Send</button></form>
     <a class="chat-whatsapp" href="https://wa.me/17623040141" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
@@ -876,6 +878,11 @@
       en: {
         welcome: 'Hello! I am CAMINTEL\'s virtual assistant. Ask me about fencing, security cameras, smart gate openers, TV mounting, service areas, or a free estimate.',
         fallback: 'I can help with our services, service areas, estimates, and contact information. For a project-specific recommendation, continue on WhatsApp or request a free estimate.',
+        greeting: 'Hello! How can I help with your property project today? I can answer questions about fences, cameras, smart gates, TV mounting, repairs, service areas, or estimates.',
+        thanks: 'You are welcome! When you are ready, request a free estimate or continue on WhatsApp and CAMINTEL will help with the next step.',
+        repair: 'CAMINTEL evaluates damaged fence sections, leaning or loose posts, gates, alignment problems, and storm-related damage. Send the location, fence type, approximate damaged length, and photos when available.',
+        materials: 'Wood offers a traditional privacy look; vinyl is low-maintenance; aluminum provides a clean decorative finish and visibility; chain-link is practical and economical. The best option depends on privacy, appearance, maintenance, and budget.',
+        process: 'The usual process is: share the address and project details, schedule an evaluation when needed, confirm the written estimate, then coordinate materials and installation. Final scope and price require CAMINTEL approval.',
         estimate: 'Free estimates are available. Use the estimate form on this page or continue on WhatsApp with your address or ZIP code, service needed, and a short project description.',
         fencing: 'CAMINTEL installs and repairs wood, vinyl, aluminum, chain-link, and privacy fences for residential and commercial properties.',
         cameras: 'We plan and install residential and commercial security camera systems, including strategic placement, perimeter coverage, remote-viewing options, setup, and customer guidance.',
@@ -888,6 +895,11 @@
       es: {
         welcome: '¡Hola! Soy el asistente virtual de CAMINTEL. Pregúntame sobre cercas, cámaras de seguridad, portones inteligentes, instalación de televisores, áreas de servicio o estimados gratuitos.',
         fallback: 'Puedo ayudarte con nuestros servicios, áreas de cobertura, estimados e información de contacto. Para una recomendación específica, continúa por WhatsApp o solicita un estimado gratuito.',
+        greeting: '¡Hola! ¿Cómo puedo ayudarte con tu propiedad? Puedo responder preguntas sobre cercas, cámaras, portones inteligentes, televisores, reparaciones, áreas de servicio o estimados.',
+        thanks: '¡Con gusto! Cuando estés listo, solicita un estimado gratuito o continúa por WhatsApp y CAMINTEL te ayudará con el próximo paso.',
+        repair: 'CAMINTEL evalúa secciones dañadas, postes inclinados o flojos, portones, problemas de alineación y daños por tormentas. Envía la ubicación, el tipo de cerca, la longitud aproximada del daño y fotos cuando estén disponibles.',
+        materials: 'La madera ofrece privacidad y apariencia tradicional; el vinilo requiere poco mantenimiento; el aluminio brinda un acabado decorativo con visibilidad; y la malla ciclónica es práctica y económica. La mejor opción depende de privacidad, apariencia, mantenimiento y presupuesto.',
+        process: 'El proceso habitual es: compartir la dirección y detalles, programar una evaluación cuando sea necesaria, confirmar el estimado escrito y coordinar materiales e instalación. El alcance y precio final requieren aprobación de CAMINTEL.',
         estimate: 'Los estimados son gratuitos. Usa el formulario de esta página o continúa por WhatsApp con tu dirección o código postal, el servicio y una breve descripción del proyecto.',
         fencing: 'CAMINTEL instala y repara cercas de madera, vinilo, aluminio, malla ciclónica y privacidad para propiedades residenciales y comerciales.',
         cameras: 'Planificamos e instalamos cámaras residenciales y comerciales, incluida la ubicación estratégica, cobertura perimetral, visualización remota, configuración y orientación.',
@@ -910,7 +922,12 @@
     function answerChat(question) {
       const q = question.toLowerCase();
       const copy = currentChatCopy();
+if (/^(hi|hello|hey|good morning|good afternoon|hola|buenos días|buenos dias|buenas tardes|buenas)$/.test(q.trim())) return copy.greeting;
+      if (/thank|thanks|gracias|muchas gracias/.test(q)) return copy.thanks;
+      if (/repair|damaged|broken|leaning|storm|repar|dañ|danad|roto|inclinad|tormenta/.test(q)) return copy.repair;
       if (/estimate|quote|price|cost|precio|costo|estimado|cotiz/.test(q)) return copy.estimate;
+      if (/difference|compare|best material|which fence|diferencia|comparar|mejor material|qué cerca|que cerca/.test(q)) return copy.materials;
+      if (/process|next step|how does it work|timeline|proceso|próximo paso|proximo paso|cómo funciona|como funciona/.test(q)) return copy.process;
       if (/fence|fencing|wood|vinyl|aluminum|chain|privacy|cerca|madera|vinilo|aluminio|malla/.test(q)) return copy.fencing;
       if (/camera|security|surveillance|cámara|camara|seguridad|vigilancia/.test(q)) return copy.cameras;
       if (/gate|opener|keypad|portón|porton|abridor/.test(q)) return copy.gates;
