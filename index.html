@@ -873,6 +873,10 @@
     const chatInput = document.querySelector('#chat-input');
     const chatWhatsApp = document.querySelector('.chat-whatsapp');
     let lastChatQuestion = '';
+    const chatSessionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2);
+    const chatHistory = [];
+    const chatEndpoint = 'https://camintel.app.n8n.cloud/webhook/camintel-ai-chat';
+    let chatPending = false;
 
     const chatCopy = {
       en: {
@@ -919,22 +923,30 @@
       chatMessages.appendChild(message);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-    function answerChat(question) {
-      const q = question.toLowerCase();
-      const copy = currentChatCopy();
-if (/^(hi|hello|hey|good morning|good afternoon|hola|buenos días|buenos dias|buenas tardes|buenas)$/.test(q.trim())) return copy.greeting;
-      if (/thank|thanks|gracias|muchas gracias/.test(q)) return copy.thanks;
-      if (/repair|damaged|broken|leaning|storm|repar|dañ|danad|roto|inclinad|tormenta/.test(q)) return copy.repair;
-      if (/estimate|quote|price|cost|precio|costo|estimado|cotiz/.test(q)) return copy.estimate;
-      if (/difference|compare|best material|which fence|diferencia|comparar|mejor material|qué cerca|que cerca/.test(q)) return copy.materials;
-      if (/process|next step|how does it work|timeline|proceso|próximo paso|proximo paso|cómo funciona|como funciona/.test(q)) return copy.process;
-      if (/fence|fencing|wood|vinyl|aluminum|chain|privacy|cerca|madera|vinilo|aluminio|malla/.test(q)) return copy.fencing;
-      if (/camera|security|surveillance|cámara|camara|seguridad|vigilancia/.test(q)) return copy.cameras;
-      if (/gate|opener|keypad|portón|porton|abridor/.test(q)) return copy.gates;
-      if (/tv|television|televisor/.test(q)) return copy.tv;
-      if (/area|location|serve|augusta|evans|martinez|grovetown|aiken|ubicaci|zona/.test(q)) return copy.areas;
-      if (/phone|email|contact|whatsapp|teléfono|telefono|correo|contacto/.test(q)) return copy.contact;
-      return copy.fallback;
+    async function answerChat(question) {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 20000);
+      try {
+        const response = await fetch(chatEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: chatSessionId,
+            message: question,
+            language: document.documentElement.lang === 'es' ? 'es' : 'en',
+            history: chatHistory.slice(-12)
+          }),
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error('Chat service unavailable');
+        const data = await response.json();
+        const answer = typeof data.output === 'string' ? data.output : data.reply;
+        if (!answer || typeof answer !== 'string') throw new Error('Missing chat reply');
+        chatHistory.push({ role: 'user', content: question }, { role: 'assistant', content: answer });
+        return answer.slice(0, 4000);
+      } finally {
+        window.clearTimeout(timeout);
+      }
     }
     function refreshWhatsAppLink() {
       const language = document.documentElement.lang === 'es' ? 'es' : 'en';
@@ -950,15 +962,27 @@ if (/^(hi|hello|hey|good morning|good afternoon|hola|buenos días|buenos dias|bu
     function closeChat() { chatPanel.hidden = true; chatLauncher.setAttribute('aria-expanded', 'false'); chatLauncher.focus(); }
     chatLauncher.addEventListener('click', () => chatPanel.hidden ? openChat() : closeChat());
     chatClose.addEventListener('click', closeChat);
-    chatForm.addEventListener('submit', (event) => {
+    chatForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const question = chatInput.value.trim();
-      if (!question) return;
+      if (!question || chatPending) return;
       lastChatQuestion = question;
       addChatMessage(question, 'user');
       chatInput.value = '';
-      window.setTimeout(() => addChatMessage(answerChat(question)), 250);
       refreshWhatsAppLink();
+      chatPending = true;
+      chatForm.querySelector('button').disabled = true;
+      try {
+        addChatMessage(await answerChat(question));
+      } catch (error) {
+        addChatMessage(document.documentElement.lang === 'es'
+          ? 'No puedo responder en este momento. Llama o escribe al (762) 304-0141, o continúa por WhatsApp.'
+          : 'I cannot respond right now. Call or text (762) 304-0141, or continue on WhatsApp.');
+      } finally {
+        chatPending = false;
+        chatForm.querySelector('button').disabled = false;
+        chatInput.focus();
+      }
     });
     document.querySelectorAll('.chat-suggestion').forEach((button) => button.addEventListener('click', () => {
       chatInput.value = button.dataset.question;
