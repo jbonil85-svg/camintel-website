@@ -875,7 +875,7 @@
     let lastChatQuestion = '';
     const chatSessionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2);
     const chatHistory = [];
-    const chatEndpoint = 'https://jbonil85.app.n8n.cloud/webhook/camintel-ai-chat';
+    const chatEndpoint = 'https://camintel.app.n8n.cloud/webhook/camintel-ai-chat';
     let chatPending = false;
 
     const chatCopy = {
