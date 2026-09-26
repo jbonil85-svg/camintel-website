@@ -1,6 +1,6 @@
 # CAMINTEL web AI agent setup
 
-The website chat on this branch sends JSON to `POST https://jbonil85.app.n8n.cloud/webhook/camintel-ai-chat`. Keep this branch unpublished until the workflow below is active and the browser test succeeds.
+The website chat on this branch sends JSON to `POST https://camintel.app.n8n.cloud/webhook/camintel-ai-chat`. Keep this branch unpublished until the workflow below is active and the browser test succeeds.
 
 ## Request and response
 
